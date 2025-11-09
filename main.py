@@ -2144,6 +2144,8 @@ def render_html_content(
 
             escaped_word = html_escape(stat["word"])
 
+            stat["titles"].reverse()
+            
             html += f"""
                 <div class="word-group">
                     <div class="word-header">
