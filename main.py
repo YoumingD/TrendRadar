@@ -4528,14 +4528,3 @@ def main():
 if __name__ == "__main__":
     main()
     
-    topic = os.getenv("NTFY_TOPIC")
-    server = os.getenv("NTFY_SERVER_URL", "https://ntfy.sh")
-    if topic:
-        try:
-            requests.post(f"{server.rstrip('/')}/{topic}",
-                          data="✅ TrendRadar 运行成功".encode("utf-8"))
-            print("📨 ntfy 推送成功")
-        except Exception as e:
-            print(f"❌ ntfy 推送失败: {e}")
-    else:
-        print("⚠️ 未设置 NTFY_TOPIC，跳过推送")
