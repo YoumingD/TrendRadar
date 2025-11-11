@@ -1305,6 +1305,22 @@ def count_word_frequency(
             ),
         )
 
+        # ✅ 限制为 3 天内且最多 10 条
+        cutoff_time = datetime.now() - timedelta(days=3)
+        filtered_titles = []
+        for t in sorted_titles:
+            time_str = t.get("first_time")
+            try:
+                t_time = datetime.strptime(time_str, "%Y-%m-%d %H:%M")
+            except Exception:
+                continue
+            if t_time >= cutoff_time:
+                filtered_titles.append(t)
+            if len(filtered_titles) >= 10:
+                break
+        
+        sorted_titles = filtered_titles
+        
         stats.append(
             {
                 "word": group_key,
