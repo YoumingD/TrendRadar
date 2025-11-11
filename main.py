@@ -203,7 +203,7 @@ print(f"监控平台数量: {len(CONFIG['PLATFORMS'])}")
 # === 工具函数 ===
 def get_beijing_time():
     """获取北京时间"""
-    return datetime.now(pytz.timezone("Asia/Shanghai"))
+    return datetime.now(pytz.timezone("America/Los_Angeles"))
 
 
 def format_date_folder():
